@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <title>商品資訊與訂購表單</title>
+  <style>
+    body {
+      font-family: "Microsoft JhengHei", sans-serif;
+      background-color: #fff;
+      display: flex;
+      flex-direction: column;  /* ✅ 垂直排列 */
+      align-items: center;
+      margin-top: 30px;
+    }
+    .container {
+      border: 2px solid #000;
+      border-radius: 10px;
+      padding: 20px 40px;
+      width: 600px;
+      margin-bottom: 40px;
+    }
+    h1, h2 {
+      text-align: center;
+      margin: 10px 0;
+    }
+
+    /* 商品資訊表格 */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    th, td {
+      border: 1px solid #000;
+      padding: 6px 8px;
+      text-align: center;
+    }
+    th {
+      background-color: #f8f8f8;
+    }
+    tfoot td {
+      font-weight: bold;
+    }
+    .stars {
+      font-size: 16px;
+    }
+
+    /* 訂購表單 */
+    fieldset {
+      border: 1px solid #000;
+      margin-bottom: 20px;
+      padding: 15px;
+    }
+    legend {
+      font-weight: bold;
+    }
+    input[type="text"],
+    input[type="email"],
+    textarea,
+    select {
+      width: 100%;
+      padding: 6px;
+      margin-top: 4px;
+      box-sizing: border-box;
+    }
+    textarea {
+      resize: none;
+      height: 60px;
+    }
+
+    .product-option {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 8px;
+      word-break: break-all;
+    }
+    .product-option select {
+      max-width: 140px;
+    }
+
+    /* 按鈕列 */
+    .btn-group {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 10px;
+    }
+    button {
+      padding: 8px 16px;
+      border-radius: 6px;
+      border: 1px solid #000;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    button:hover {
+      background-color: #f0f0f0;
+    }
+  </style>
+</head>
+
+<body>
+    <form>
+
+  <!-- 商品資訊 -->
+  <div class="container">
+    <h1>商品資訊</h1>
+    <h2>本月特惠商品</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>商品編號</th>
+          <th>商品名稱</th>
+          <th>規格</th>
+          <th>原價</th>
+          <th>特價</th>
+          <th>庫存</th>
+          <th>評價</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>P001</td>
+          <td>無線藍牙耳機</td>
+          <td>黑色/白色</td>
+          <td>$2,500</td>
+          <td>$1,990</td>
+          <td>25</td>
+          <td class="stars">★★★★☆</td>
+        </tr>
+        <tr>
+          <td>P002</td>
+          <td>USB-C 充電線</td>
+          <td>1.5米</td>
+          <td>$499</td>
+          <td>$299</td>
+          <td>50</td>
+          <td class="stars">★★★★★</td>
+        </tr>
+        <tr>
+          <td>P003</td>
+          <td>行動電源</td>
+          <td>10000mAh</td>
+          <td>$1,200</td>
+          <td>$899</td>
+          <td>12</td>
+          <td class="stars">★★★★☆</td>
+        </tr>
+        <tr>
+          <td>P004</td>
+          <td>手機支架</td>
+          <td>可調式</td>
+          <td>$350</td>
+          <td>$199</td>
+          <td>30</td>
+          <td class="stars">★★★☆☆</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="5" style="text-align:left;">總共 4 項商品</td>
+          <td colspan="2">限時特惠中</td>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+
+  <!-- 訂購表單 -->
+  <div class="container">
+    <h1>訂購表單</h1>
+
+    <fieldset>
+      <legend>商品選擇</legend>
+      <p>請選擇欲購買的商品：</p>
+
+      <div class="product-option">
+        <input type="checkbox" id="p1">
+        <label for="p1">無線藍牙耳機 – $1,990</label>
+        <select><option>選擇顏色</option></select>
+        數量：<input type="number" value="1" min="1" max="99">
+      </div>
+
+      <div class="product-option">
+        <input type="checkbox" id="p2">
+        <label for="p2">USB-C 充電線 – $299</label>
+        <select><option>選擇顏色</option></select>
+        數量：<input type="number" value="1" min="1" max="99">
+      </div>
+
+      <div class="product-option">
+        <input type="checkbox" id="p3">
+        <label for="p3">行動電源 – $899</label>
+        數量：<input type="number" value="1" min="1" max="99">
+      </div>
+
+      <div class="product-option">
+        <input type="checkbox" id="p4">
+        <label for="p4">手機支架 – $199</label>
+        數量：<input type="number" value="1" min="1" max="99">
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>收件人資訊</legend>
+      <label>收件人姓名：<input type="text"></label><br>
+      <label>收件人電話：<input type="text" placeholder="09xx-xxx-xxx"></label><br>
+      <label>收件人郵件：<input type="text"></label><br>
+      <label>收件人地址：</label>
+      <textarea placeholder="輸入完整地址"></textarea>
+    </fieldset>
+
+    <fieldset>
+      <legend>配送選項</legend>
+      <label><input type="radio" name="delivery" value="standard"> 標準配送（3–5天）－免費</label><br>
+      <label><input type="radio" name="delivery" value="express"> 快速配送（1–2天）－$100</label><br>
+      <label><input type="radio" name="delivery" value="overnight"> 隔夜配送（次日到達）－$200</label><br>
+      <label for="delivery-time">希望配送時間：</label>
+      <select id="delivery-time">
+        <option>不指定</option>
+        <option>上午（9–12點）</option>
+        <option>下午（13–17點）</option>
+        <option>晚上（18–21點）</option>
+      </select>
+    </fieldset>
+
+    <fieldset>
+      <legend>付款方式</legend>
+      <label><input type="radio" name="payment" value="card"> 信用卡付款</label><br>
+      <label><input type="radio" name="payment" value="atm"> ATM轉帳</label><br>
+      <label><input type="radio" name="payment" value="cod"> 貨到付款</label>
+    </fieldset>
+
+    <fieldset>
+      <legend>其他資訊</legend>
+      <label>優惠券代碼：</label>
+      <input type="text" placeholder="輸入優惠券代碼"><br><br>
+
+      <label>訂單備註：</label><br>
+      <textarea cols="40" rows="4" placeholder="有任何特殊需求請在此輸入"></textarea><br><br>
+
+      <input type="checkbox" checked> 我希望收到最新商品資訊及優惠訊息<br>
+      <input type="checkbox"> 我已閱讀並同意 
+      <a href="#">購物條款</a> 和 
+      <a href="#">隱私政策</a><br><br>
+
+      <div class="btn-group">
+        <button type="submit">確認訂購</button>
+        <button type="reset">清除表單</button>
+      </div>
+    </fieldset>
+    </form>
+
+  </div>
+</body>
+</html>
